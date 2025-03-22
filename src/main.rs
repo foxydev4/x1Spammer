@@ -41,14 +41,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let test_sig = send_transaction_async(&client, &sender_keypair, recipient_pubkey, test_lamports).await?;
     println!("Test transaction sent: {}", test_sig);
 
-    println!("Start spamming? (y/n): ");
-    let mut input = String::new();
-    std::io::stdin().read_line(&mut input)?;
-    if input.trim().to_lowercase() != "y" {
-        println!("Spamming cancelled.");
-        return Ok(());
-    }
-
     println!("Starting spammer -> to {}", rpc_url);
 
     loop {
