@@ -37,7 +37,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let balance = client.get_balance(&sender_keypair.pubkey())?;
     println!("Sender's balance: {} lamports", balance);
 
-    let test_lamports = rand::thread_rng().gen_range(1000..10000);
+    let test_lamports = rand::thread_rng().gen_range(20..40);
     let test_sig = send_transaction_async(&client, &sender_keypair, recipient_pubkey, test_lamports).await?;
     println!("Test transaction sent: {}", test_sig);
 
@@ -60,7 +60,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let sender_clone = Keypair::from_bytes(&private_key_bytes)?;
             let recipient_clone = recipient_pubkey;
             tasks.push(tokio::spawn(async move {
-                let lamports = rand::thread_rng().gen_range(1000..10000);
+                let lamports = rand::thread_rng().gen_range(20..40);
                 match send_transaction_async(&client_clone, &sender_clone, recipient_clone, lamports).await {
                     Ok(sig) => (),
                     Err(e) => eprintln!("Failed: {}", e),
