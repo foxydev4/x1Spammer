@@ -1,0 +1,35 @@
+# Rust and Cargo
+/target
+Cargo.lock
+
+# Environment Files
+.env
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# Executables (if you build them directly)
+*.exe
+*.dll
+
+# IDE specific files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Node.js (if you mix with node)
+node_modules/
+
+# Python (if you mix with python)
+__pycache__/
+*.pyc
+*.pyd
+*.egg-info/
